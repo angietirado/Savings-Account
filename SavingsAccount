@@ -1,0 +1,33 @@
+/**
+ *
+ * @author Angie T
+ */
+public class SavingsAccount {
+    private double balance;
+    private double interestRate;
+    
+    public SavingsAccount(double bal, double intRate){
+        balance = bal;
+        interestRate = intRate;
+    }
+    
+    public void withdraw(double amount){
+        balance = balance - amount;
+    }
+    
+    public void deposit(double amount){
+        balance = balance + amount;
+    }
+    
+    public void addInterest(){
+        balance = balance + (balance * (interestRate/12));
+    }
+    
+    public double getBalance(){
+        return balance;
+    }
+    
+    public double getInterestRate(){
+        return interestRate;
+    }
+}
