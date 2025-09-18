@@ -1,0 +1,49 @@
+/**
+ *
+ * @author Angie T
+ */
+import java.util.Scanner;
+public class SavingsAccountDriver {
+
+    public static void main(String[] args) {
+        
+        double annual;
+        double startBalance;
+        int numMonths = 0;
+        double deposited = 0.0;
+                
+        Scanner userInput2 = new Scanner(System.in);
+        System.out.println("Enter the annual interest rate");
+        annual = userInput2.nextDouble();
+        System.out.println("Enter the current balance of your account");
+        startBalance = userInput2.nextDouble();
+        System.out.println("Enter the number of months since you opened your account");
+        numMonths = userInput2.nextInt();
+        
+            SavingsAccount savings = new SavingsAccount(startBalance, annual);
+        
+        for(int i = 1; i <= numMonths; i++){
+            
+            Scanner userInput = new Scanner(System.in);
+            
+            System.out.println("Please enter the amount deposited into the account during the " + i + " month(s)");
+            
+            deposited = userInput.nextDouble();
+            
+            
+            savings.deposit(deposited);
+            
+            System.out.println("Enter the amount withdrawn from the account during " + i + "month(s)");
+            
+            Double withdraw = userInput.nextDouble();
+            
+            savings.withdraw(withdraw);
+            
+            savings.addInterest();
+
+        }
+        
+        System.out.println(savings.getBalance());
+        System.out.println(savings.getInterestRate());
+    }
+}
